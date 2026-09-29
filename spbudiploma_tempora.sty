@@ -26,6 +26,7 @@
 % Межстрочный интервал = 1.5pt
 \usepackage{setspace}
 \onehalfspacing
+\setlength{\emergencystretch}{1.5em}
 
 % Абзацный отступ = 1.25см
 \usepackage{indentfirst}
@@ -33,6 +34,10 @@
 
 % Пакет для содержания
 \usepackage{tocloft}
+
+% В документах по ГИА часто используется термин "Оглавление"
+% (по умолчанию LaTeX выводит "Содержание")
+\addto\captionsrussian{\renewcommand{\contentsname}{Оглавление}}
 
 % Команда для специальных разделов (введение, обзор литературы, etc)
 % Не нумеруются в содержании, по уровню вложенности: 
@@ -85,14 +90,19 @@
 \usepackage{import}
 
 % Пакет, реализующий гиперссылки. Никакого расскрашивания
-\usepackage[colorlinks=false,unicode=true]{hyperref}
+\usepackage[
+    colorlinks=false,
+    unicode=true,
+    linktoc=all,
+    pdfborder={0 0 1}
+]{hyperref}
 
 \newcommand{\ITEM}{\vspace{-0.2cm}\item}
 \newcommand{\MList}[1]{\par\begin{itemize}#1\end{itemize}}
 \newcommand{\NList}[1]{\par\begin{enumerate}#1\end{enumerate}}
 
-% Нумерация только тех формул, на которые в тексте присутствует ссылка
-\usepackage{autonum}
+% Нумерация формул оставлена стандартной: пакет autonum несовместим с biblatex
+% в актуальных версиях TeX Live.
 
 % Список литературы
 \renewenvironment{thebibliography}[1]
