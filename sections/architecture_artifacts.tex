@@ -121,34 +121,32 @@
 \newcommand{\TransitionGraphArtifact}{
 \begin{figure}[ht]
 \begin{center}
-\resizebox{\textwidth}{!}{%
 \begin{tikzpicture}[
-    state/.style={draw, rounded corners, align=center, minimum width=2.2cm, minimum height=0.9cm, fill=gray!8, font=\small},
-    generic/.style={draw, rounded corners, align=center, minimum width=2.35cm, minimum height=0.9cm, fill=blue!7, font=\small},
+    state/.style={draw, rounded corners, align=center, text width=3.1cm, minimum height=1.05cm, fill=gray!8, font=\small},
+    generic/.style={draw, rounded corners, align=center, text width=2.85cm, minimum height=0.9cm, fill=blue!7, font=\small},
     swap/.style={<->, >=Latex, thick},
     transform/.style={<->, >=Latex, dashed, thick},
     note/.style={align=center, font=\small}
 ]
-    \node[state] (a) at (-5.4,2.4) {\(Hy(3,d,0,0)\)\\реплики};
-    \node[state] (b) at (-1.8,2.4) {\(Hy(2,d,1,0)\)\\локальный проверочный блок};
-    \node[state] (c) at (1.8,2.4) {\(Hy(1,d,1,1)\)\\LRCC};
-    \node[state] (d) at (5.4,2.4) {\(Hy(0,d,1,2)\)\\LRCC};
+    \node[state] (a) at (-6.0,3.4) {\(Hy(3,d,0,0)\)\\реплики};
+    \node[state] (b) at (-2.0,3.4) {\(Hy(2,d,1,0)\)\\локальный\\проверочный блок};
+    \node[state] (c) at (2.0,3.4) {\(Hy(1,d,1,1)\)\\LRCC};
+    \node[state] (d) at (6.0,3.4) {\(Hy(0,d,1,2)\)\\LRCC};
 
     \draw[swap] (a) -- (b);
     \draw[swap] (b) -- (c);
     \draw[swap] (c) -- (d);
-    \node[note] at (0,3.45) {реплика \(\leftrightarrow\) проверочный блок};
+    \node[note] at (0,4.75) {реплика \(\leftrightarrow\) проверочный блок};
 
-    \node[generic] (l1) at (-4.1,0) {\(Hy(r,d,2l,g)\)};
+    \node[generic] (l1) at (-4.4,0) {\(Hy(r,d,2l,g)\)};
     \node[generic] (l2) at (0,0) {\(Hy(r,d,l,g)\)};
-    \node[generic] (w) at (4.1,0) {\(Hy(r,2d,2l,g)\)};
+    \node[generic] (w) at (4.4,0) {\(Hy(r,2d,2l,g)\)};
 
     \draw[transform] (l1) -- (l2);
     \draw[transform] (l2) -- (w);
-    \node[note] at (-2.15,0.9) {разделение/объединение\\локальных групп};
-    \node[note] at (2.15,0.9) {разделение/объединение\\полос};
-\end{tikzpicture}%
-}
+    \node[note, text width=3.3cm] at (-2.25,1.35) {разделение\\или объединение\\локальных групп};
+    \node[note, text width=3.3cm] at (2.25,1.35) {разделение\\или объединение\\полос};
+\end{tikzpicture}
 \caption{\label{fig:transition-graph}
 Семейства допустимых переходов между схемами хранения; запись
 \(Hy(r,d,l,g)\) сокращает \(Hy(r,LRCC(d,l,g))\).}
